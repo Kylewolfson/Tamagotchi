@@ -23,10 +23,8 @@ public class App {
       String inputtedName = request.queryParams("name");
 
       Tamagotchi myPet = request.session().attribute("myPet");
-      if(myPet == null) {
-        myPet = new Tamagotchi(inputtedName);
-        request.session().attribute("myPet", myPet);
-      }
+      myPet = new Tamagotchi(inputtedName);
+      request.session().attribute("myPet", myPet);
       model.put("name", myPet.getName());
       model.put("food", myPet.getFoodLevel());
       model.put("sleep", myPet.getSleepLevel());
@@ -45,6 +43,7 @@ public class App {
       model.put("food", myPet.getFoodLevel());
       model.put("sleep", myPet.getSleepLevel());
       model.put("activity", myPet.getActivityLevel());
+      model.put("isAlive", myPet.isAlive());
 
       model.put("template", "templates/mypet.vtl");
       return new ModelAndView(model, layout);

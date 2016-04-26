@@ -1,18 +1,25 @@
-<h1>this is where the pet goes.</h1>
-<h3>$name</h3>
-<h3>Food: $food</h3>
-<h3>Sleep: $sleep</h3>
-<h3>Activity: $activity</h3>
 
-<form action="/timepasses" method="post">
-  <button type="submit" class="btn btn-success">Time passes!</button>
-</form>
-<form action="/feed" method="post">
-  <button type="submit" class="btn btn-success">Feed!</button>
-</form>
-<form action="/sleep" method="post">
-  <button type="submit" class="btn btn-success">Sleep!</button>
-</form>
-<form action="/exercise" method="post">
-  <button type="submit" class="btn btn-success">Pump some iron!</button>
-</form>
+#if($isAlive == false)
+  <h1>$name has died.</h1>
+  <a href="/">Adopt a new pet, you worthless pet killer.</a>
+#else
+
+  <h1>this is where the pet goes.</h1>
+  <h3>$name</h3>
+  <h3>Food: $food</h3>
+  <h3>Sleep: $sleep</h3>
+  <h3>Activity: $activity</h3>
+
+  <form action="/timepasses" method="post">
+    <button type="submit" class="btn">Time passes!</button>
+  </form>
+  <form action="/feed" method="post">
+    <button type="submit" class="btn btn-success">Feed!</button>
+  </form>
+  <form action="/sleep" method="post">
+    <button type="submit" class="btn btn-warning">Sleep!</button>
+  </form>
+  <form action="/exercise" method="post">
+    <button type="submit" class="btn btn-danger">Pump some iron!</button>
+  </form>
+#end
