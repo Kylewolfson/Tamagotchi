@@ -5,9 +5,14 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 import java.util.ArrayList;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class App {
   public static void main(String[] args) {
+    Timer timer = new Timer();
+    timer.schedule(new TamagotchiTime(), 0, 5000);
+
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
@@ -58,6 +63,7 @@ public class App {
       model.put("food", myPet.getFoodLevel());
       model.put("sleep", myPet.getSleepLevel());
       model.put("activity", myPet.getActivityLevel());
+      model.put("isAlive", myPet.isAlive());
 
       model.put("template", "templates/mypet.vtl");
       return new ModelAndView(model, layout);
@@ -72,6 +78,7 @@ public class App {
       model.put("food", myPet.getFoodLevel());
       model.put("sleep", myPet.getSleepLevel());
       model.put("activity", myPet.getActivityLevel());
+      model.put("isAlive", myPet.isAlive());
 
       model.put("template", "templates/mypet.vtl");
       return new ModelAndView(model, layout);
@@ -86,6 +93,7 @@ public class App {
       model.put("food", myPet.getFoodLevel());
       model.put("sleep", myPet.getSleepLevel());
       model.put("activity", myPet.getActivityLevel());
+      model.put("isAlive", myPet.isAlive());
 
       model.put("template", "templates/mypet.vtl");
       return new ModelAndView(model, layout);
