@@ -1,3 +1,3 @@
 setTimeout(function(){
    $("#refresh").trigger("click");
-}, 1000);
+}, 4000);

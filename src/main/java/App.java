@@ -27,8 +27,8 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       String inputtedName = request.queryParams("name");
 
-      Tamagotchi myPet = request.session().attribute("myPet");
-      myPet = new Tamagotchi(inputtedName);
+
+      Tamagotchi myPet = new Tamagotchi(inputtedName);
       request.session().attribute("myPet", myPet);
       model.put("name", myPet.getName());
       model.put("food", myPet.getFoodLevel());
