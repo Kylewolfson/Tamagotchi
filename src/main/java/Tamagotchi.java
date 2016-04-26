@@ -17,6 +17,16 @@ public void timePasses() {
   mActivityLevel--;
 }
 
+public void feed() {
+  mFoodLevel = 10;
+}
+public void sleep() {
+  mSleepLevel = 10;
+}
+public void exercise() {
+  mActivityLevel = 10;
+}
+
 public String getName(){
   return mName;
 }
