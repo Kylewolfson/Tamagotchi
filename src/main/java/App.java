@@ -28,6 +28,23 @@ public class App {
         request.session().attribute("myPet", myPet);
       }
       model.put("name", myPet.getName());
+      model.put("food", myPet.getFoodLevel());
+      model.put("sleep", myPet.getSleepLevel());
+      model.put("activity", myPet.getActivityLevel());
+
+      model.put("template", "templates/mypet.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/timepasses", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+
+      Tamagotchi myPet = request.session().attribute("myPet");
+      myPet.timePasses();
+      model.put("name", myPet.getName());
+      model.put("food", myPet.getFoodLevel());
+      model.put("sleep", myPet.getSleepLevel());
+      model.put("activity", myPet.getActivityLevel());
 
       model.put("template", "templates/mypet.vtl");
       return new ModelAndView(model, layout);
